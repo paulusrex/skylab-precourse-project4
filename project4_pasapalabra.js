@@ -504,6 +504,9 @@ const sampleQuestions = [
 class Control {
   constructor(baseQuestions, alter) {
     this.questions = Control.mixQuestions(baseQuestions, alter);
+    this.timeInit = null;
+    this.timeEnd = null;
+    this.timeStop = null;
   }
 
   static mixQuestions(base, alter) {
@@ -520,22 +523,34 @@ class Control {
   }
 
   startTime(secondsToFinish) {
-    this.timeInit = new Date();
-    this.timeEnd = this.timeInit + secondsToFinish * 1000;
+    if (this.timeInit === null) {
+      this.timeInit = new Date();
+      this.timeEnd = new Date(this.timeInit.getTime() + secondsToFinish * 1000);
+      this.timeStop = null;
+    } else {
+      this.timeEnd = new Date() + this.timeRemaining();
+      this.timeStop = null;
+    }
+  }
+
+  timeRemaining() {
+    // In milliseconds
+    if (this.timeStop === null) {
+      return this.timeEnd.getTime() - new Date().getTime();
+    }
+    return this.timeEnd.getTime() - this.timeStop.getTime();
   }
 
   secondsRemaining() {
-    return Math.floor(this.timeEnd - Date.now() / 1000);
+    return Math.floor(this.timeRemaining() / 1000);
   }
 
   checkAnswer(index, answer) {
-    if (Date.now > this.timeEnd) {
-      answer = '#timeout#';
+    if (this.timeRemaining() < 0) {
+      this.questions[index].status = TIMEOUT;
+      return this.questions[index].status;
     }
     switch (answer.toLowerCase()) {
-      case '#timeout#':
-        this.questions[index].status = TIMEOUT;
-        break;
       case 'pasapalabra':
         this.questions[index].status = PASAPALABRA;
         break;
@@ -565,15 +580,15 @@ class Control {
   }
 
   countCorrect() {
-    return countStatus(CORRECT);
+    return this.countStatus(CORRECT);
   }
 
   countWrong() {
-    return countStatus(WRONG);
+    return this.countStatus(WRONG);
   }
 
   countStatus(statusToCount) {
-    return this.questions.filter(({ status }) => status === statusToCount).length
+    return this.questions.filter(({ status }) => status === statusToCount).length;
   }
 
   getQuestion(index) {
@@ -618,21 +633,22 @@ class Control {
 }
 
 function pasapalabra(questions, alternatives) {
+  const maxTime = 120;
   const control = new Control(questions, alternatives);
   let pending = true;
   let confirm = '';
   while (!/^(s|n)$/i.test(confirm)) {
-    confirm = prompt('¿Estás preparado para empezar tus 2 minutos? (s/n)')
+    confirm = prompt('¿Estás preparado para empezar tus 2 minutos? (s/n)');
   }
   if (confirm.toLocaleLowerCase() === 's') {
-    control.startTime();
+    control.startTime(maxTime);
   } else {
     pending = false;
   }
   let index = 0;
   while (pending) {
     console.log();
-    const answer = prompt(`${control.getQuestion(index)}\nTe quedan: ${control.secondRemaining()}\nRespuesta ("end" para terminar) > `);
+    const answer = prompt(`${control.getQuestion(index)}\nTe quedan: ${control.secondsRemaining()}\nRespuesta ("end" para terminar) > `);
     control.checkAnswer(index, answer);
     switch (control.getStatus(index)) {
       case WRONG:
@@ -658,12 +674,14 @@ function pasapalabra(questions, alternatives) {
     console.log(control.getDisplay(index));
   }
   console.log('JUEGO FINALIZADO');
-  console.log(control.showStatistics());
-  if (control.isCompleted() || control.getStatus(index) === TIMEOUT) {
-    console.log('Ciao.')
-  } else if {control.getStatus(index) === END} {
+  control.showStatistics();
+  if (control.isCompleted()) {
+    console.log('Completado. Ciao.');
+  } else if (control.getStatus(index) === TIMEOUT) {
+    console.log('Tiempo finalizado');
+  } else if (control.getStatus(index) === END) {
     console.log('Retirada del concursante. Sin puntos para acumular');
-  } 
+  }
   return control;
 }
 

@@ -501,12 +501,14 @@ const sampleQuestions = [
   },
 ];
 
-class Control {
-  constructor(baseQuestions, alter) {
-    this.questions = Control.mixQuestions(baseQuestions, alter);
+class Player {
+  constructor(name, baseQuestions, alter) {
+    this.name = name;
+    this.questions = Player.mixQuestions(baseQuestions, alter);
     this.timeInit = null;
     this.timeEnd = null;
     this.timeStop = null;
+    this.indexNextQuestion = 0;
   }
 
   static mixQuestions(base, alter) {
@@ -545,7 +547,8 @@ class Control {
     return Math.floor(this.timeRemaining() / 1000);
   }
 
-  checkAnswer(index, answer) {
+  checkAnswer(answer) {
+    const index = this.indexNextQuestion;
     if (this.timeRemaining() < 0) {
       this.questions[index].status = TIMEOUT;
       return this.questions[index].status;
@@ -591,19 +594,35 @@ class Control {
     return this.questions.filter(({ status }) => status === statusToCount).length;
   }
 
-  getQuestion(index) {
-    return this.questions[index].question;
+  nextQuestion() {
+    if (this.isCompleted()) {
+      return null;
+    }
+    let i = this.indexNextQuestion;
+    do {
+      i++;
+      if (i >= this.questions.length) {
+        i = 0;
+      }
+    } while (this.questions[i].status === CORRECT || this.questions[i].status === WRONG) 
+    this.indexNextQuestion = i;
+    return this.indexNextQuestion;
   }
 
-  getStatus(index) {
-    return this.questions[index].status;
+  getQuestion() {
+    return this.questions[this.indexNextQuestion].question;
   }
 
-  getAnswer(index) {
-    return this.questions[index].answer;
+  getStatus() {
+    return this.questions[this.indexNextQuestion].status;
   }
 
-  getDisplay(index) {
+  getAnswer() {
+    return this.questions[this.indexNextQuestion].answer;
+  }
+
+  getDisplay() {
+    const index = this.indexNextQuestion;
     let result = '';
     if (index !== undefined) {
       for (let i = 0; i < index; i++) {
@@ -634,35 +653,34 @@ class Control {
 
 function pasapalabra(questions, alternatives) {
   const maxTime = 120;
-  const control = new Control(questions, alternatives);
+  const control = new Player('single player test', questions, alternatives);
   let pending = true;
   let confirm = '';
   while (!/^(s|n)$/i.test(confirm)) {
-    confirm = prompt('¿Estás preparado para empezar tus 2 minutos? (s/n)');
+    confirm = prompt('¿Estás preparado para empezar tu tiempo? (s/n)');
   }
   if (confirm.toLocaleLowerCase() === 's') {
     control.startTime(maxTime);
   } else {
     pending = false;
   }
-  let index = 0;
   while (pending) {
     console.log();
-    const answer = prompt(`${control.getQuestion(index)}\nTe quedan: ${control.secondsRemaining()}\nRespuesta ("end" para terminar) > `);
-    control.checkAnswer(index, answer);
-    switch (control.getStatus(index)) {
+    const answer = prompt(`${control.getQuestion()}\nTe quedan: ${control.secondsRemaining()} segundos\nRespuesta ("end" para terminar) > `);
+    control.checkAnswer(answer);
+    switch (control.getStatus()) {
       case WRONG:
-        console.log(`No! la respuesta correcta es ${control.getAnswer(index)}`);
+        console.log(`No! la respuesta correcta es ${control.getAnswer()}`);
         pending = !control.isCompleted();
-        index++;
+        control.nextQuestion();
         break;
       case CORRECT:
         console.log('Correcto');
         pending = !control.isCompleted();
-        index++;
+        control.nextQuestion();
         break;
       case PASAPALABRA:
-        index++;
+        control.nextQuestion();
         break;
       case TIMEOUT:
       case END:
@@ -671,7 +689,7 @@ function pasapalabra(questions, alternatives) {
       default:
         break;
     }
-    console.log(control.getDisplay(index));
+    console.log(control.getDisplay());
   }
   console.log('JUEGO FINALIZADO');
   control.showStatistics();

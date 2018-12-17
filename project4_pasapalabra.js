@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-console */
 /* eslint-disable linebreak-style */
@@ -502,10 +503,10 @@ const sampleQuestions = [
 ];
 
 class Player {
-  constructor(name, baseQuestions, alter) {
+  constructor(name, secondsToComplete, baseQuestions, alter) {
     this.name = name;
+    this.secondsToComplete = secondsToComplete;
     this.questions = Player.mixQuestions(baseQuestions, alter);
-    this.timeInit = null;
     this.timeEnd = null;
     this.timeStop = null;
     this.indexNextQuestion = 0;
@@ -524,23 +525,36 @@ class Player {
     return result;
   }
 
-  startTime(secondsToFinish) {
-    if (this.timeInit === null) {
-      this.timeInit = new Date();
-      this.timeEnd = new Date(this.timeInit.getTime() + secondsToFinish * 1000);
-      this.timeStop = null;
-    } else {
-      this.timeEnd = new Date() + this.timeRemaining();
-      this.timeStop = null;
-    }
+  static whoWins(player1, player2) {
+    const compare = (p1, p2, gt, lt, eq) => (p1 > p2 ? gt : (p1 < p2 ? lt : eq));
+    let winner = compare(player1.countCorrect(), player2.countCorrect(), player1, player2, null);
+    winner = winner || compare(player1.countWrong(), player2.countWrong(), player2, player1, null);
+    winner = winner || compare(player1.timeRemaining(), player2.timeRemaining(), player1, player2, null)
+    return winner;
+  }
+
+  startTimer() {
+    const timeToAdd = this.timeRemaining();
+    this.timeEnd = new Date(new Date().getTime() + timeToAdd);
+    this.timeStop = null;
+  }
+
+  stopTimer() {
+    this.timeStop = new Date();
   }
 
   timeRemaining() {
     // In milliseconds
-    if (this.timeStop === null) {
-      return this.timeEnd.getTime() - new Date().getTime();
+    if (this.timeEnd === null && this.timeStop === null) {
+      return this.secondsToComplete * 1000;
     }
-    return this.timeEnd.getTime() - this.timeStop.getTime();
+    let result;
+    if (this.timeStop === null) {
+      result = this.timeEnd.getTime() - new Date().getTime();
+    } else {
+      result = this.timeEnd.getTime() - this.timeStop.getTime();
+    }
+    return result < 0 ? -1 : result;
   }
 
   secondsRemaining() {
@@ -652,15 +666,14 @@ class Player {
 }
 
 function pasapalabra(questions, alternatives) {
-  const maxTime = 120;
-  const control = new Player('single player test', questions, alternatives);
+  const control = new Player('single player test', 120, questions, alternatives);
   let pending = true;
   let confirm = '';
   while (!/^(s|n)$/i.test(confirm)) {
     confirm = prompt('¿Estás preparado para empezar tu tiempo? (s/n)');
   }
   if (confirm.toLocaleLowerCase() === 's') {
-    control.startTime(maxTime);
+    control.startTimer();
   } else {
     pending = false;
   }

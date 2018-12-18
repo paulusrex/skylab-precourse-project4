@@ -506,118 +506,104 @@ const alterQuestions1 = [
     question: 'CON LA A. Tienda de comestibles',
     status: NOT_ANSWERED,
     answer: 'Abacería',
-
   },
   {
     letter: 'A',
     question: 'CON LA A. Calzado rústico, sandalias',
     status: NOT_ANSWERED,
     answer: 'Albarca',
-
   },
   {
     letter: 'B',
     question: 'CON LA B. Persona de carácter desenvuelto y simpático',
     status: NOT_ANSWERED,
     answer: 'Barbián',
-
   },
   {
     letter: 'B',
     question: 'CON LA B. Piel de carnero',
     status: NOT_ANSWERED,
     answer: 'Badana',
-
   },
   {
     letter: 'B',
-    question: 'CON LA B. Conjunto de hielos formados por la congelación del agua del mar en las zonas polares',
+    question:
+      'CON LA B. Conjunto de hielos formados por la congelación del agua del mar en las zonas polares',
     status: NOT_ANSWERED,
     answer: 'Banquisa',
-
   },
   {
     letter: 'C',
     question: 'CON LA C. Buey manso que se utiliza para facilitar el manejo del ganado bravío',
     status: NOT_ANSWERED,
     answer: 'Cabestro',
-
   },
   {
     letter: 'C',
     question: 'CON LA C. Cayado',
     status: NOT_ANSWERED,
     answer: 'Cachaba',
-
-  }, {
+  },
+  {
     letter: 'D',
     question: 'CON LA D. Regalos, presentes',
     status: NOT_ANSWERED,
     answer: 'Dádivas',
-
   },
   {
     letter: 'D',
     question: 'CON LA D. Modelo, ejemplo',
     status: NOT_ANSWERED,
     answer: 'Dechado',
-
   },
   {
     letter: 'E',
     question: 'CON LA E. Relativo al marfil',
     status: NOT_ANSWERED,
     answer: 'Ebúrneo',
-
   },
   {
     letter: 'E',
     question: 'CON LA E. Escudo, arma defensiva',
     status: NOT_ANSWERED,
     answer: 'Égida',
-
   },
   {
     letter: 'F',
     question: 'CON LA F. Persona de plena confianza de otra y desempeña así sus funciones',
     status: NOT_ANSWERED,
     answer: 'Factótum',
-
   },
   {
     letter: 'F',
     question: 'CON LA F. Provisto de hoces o con forma de hoz',
     status: NOT_ANSWERED,
     answer: 'Falcado',
-
   },
   {
     letter: 'G',
-    question: 'CON LA G. Lenguaje oscuro por la impropiedad de la frase o por la confusión de las ideas',
+    question:
+      'CON LA G. Lenguaje oscuro por la impropiedad de la frase o por la confusión de las ideas',
     status: NOT_ANSWERED,
     answer: 'Galimatías',
-
   },
   {
     letter: 'G',
     question: 'CON LA G. Mozo de labranza',
     status: NOT_ANSWERED,
     answer: 'Gañán',
-
   },
   {
     letter: 'H',
     question: 'CON LA H. Desastre con muchas víctimas, Sacrifico',
     status: NOT_ANSWERED,
     answer: 'Hecatombe',
-
   },
   {
     letter: 'H',
     question: 'CON LA H. Grecia e islas del mar Egeo',
     status: NOT_ANSWERED,
     answer: 'Hélade',
-
   },
   {
     letter: 'I',
@@ -625,252 +611,221 @@ const alterQuestions1 = [
     status: NOT_ANSWERED,
     answer: 'Íbex',
     answer: 'Íbice',
-
   },
   {
     letter: 'I',
     question: 'CON LA I. Lo mismo o el mismo',
     status: NOT_ANSWERED,
     answer: 'Ídem',
-
   },
   {
     letter: 'J',
     question: 'CON LA J. Adorno de las caballerías',
     status: NOT_ANSWERED,
     answer: 'Jaez',
-
   },
   {
     letter: 'J',
     question: 'CON LA J. Habla especial y enrevesada',
     status: NOT_ANSWERED,
     answer: 'Jerigonza',
-
   },
   {
     letter: 'K',
     question: 'CON LA K. Comida que es aceptable según la Torah',
     status: NOT_ANSWERED,
     answer: 'Kosher',
-
   },
   {
     letter: 'K',
-    question: 'CON LA K. Arte marcial de origen Japones, basado en golpes secos realizados con el borde de la mano, los codos o los pies',
+    question:
+      'CON LA K. Arte marcial de origen Japones, basado en golpes secos realizados con el borde de la mano, los codos o los pies',
     status: NOT_ANSWERED,
     answer: 'Karate',
-
   },
   {
     letter: 'L',
     question: 'CON LA L. Estandarte',
     status: NOT_ANSWERED,
     answer: 'Lábaro',
-
   },
   {
     letter: 'L',
     question: 'CON LA L. Relativo a un lago',
     status: NOT_ANSWERED,
     answer: 'Lacustre',
-
   },
   {
     letter: 'M',
     question: 'CON LA M. Mentira, embuste',
     status: NOT_ANSWERED,
     answer: 'Macana',
-
   },
   {
     letter: 'M',
     question: 'CON LA M. Daño ligero que presenta la fruta',
     status: NOT_ANSWERED,
     answer: 'Maca',
-
   },
   {
     letter: 'N',
     question: 'CON LA N. Abuso de poder favoreciendo a parientes o amigos',
     status: NOT_ANSWERED,
     answer: 'Nepotismo',
-
   },
   {
     letter: 'N',
     question: 'CON LA N. Insignificante',
     status: NOT_ANSWERED,
     answer: 'Nimio',
-
   },
   {
     letter: 'O',
     question: 'CON LA O. Viejo, Caduco, Pasado de moda, Inútil por vejez',
     status: NOT_ANSWERED,
     answer: 'Obsoleto',
-
   },
   {
     letter: 'O',
     question: 'CON LA O. Masturbación',
     status: NOT_ANSWERED,
     answer: 'Onanismo',
-
   },
   {
     letter: 'P',
     question: 'CON LA P. Jolgorio ruidoso y desordenado',
     status: NOT_ANSWERED,
     answer: 'Pachanga',
-
   },
   {
     letter: 'P',
     question: 'CON LA P. Persona práctica',
     status: NOT_ANSWERED,
     answer: 'Pragmático',
-
   },
   {
     letter: 'Q',
     question: 'CONTIENE LA Q. Que implica anarquía o está caracterizado por ella',
     status: NOT_ANSWERED,
     answer: 'Anárquico',
-
   },
   {
     letter: 'Q',
-    question: 'CONTIENE LA Q. Producto obtenido de la destilación de maderas resinosas, carbones, petróleo, pizarras y otros materiales vegetales y minerales.',
+    question:
+      'CONTIENE LA Q. Producto obtenido de la destilación de maderas resinosas, carbones, petróleo, pizarras y otros materiales vegetales y minerales.',
     status: NOT_ANSWERED,
     answer: 'Alquitrán',
-
   },
   {
     letter: 'R',
     question: 'CON LA R. Segmento lineal que une el centro del círculo con la circunferencia',
     status: NOT_ANSWERED,
     answer: 'Radio',
-
   },
   {
     letter: 'R',
     question: 'CON LA R. Conjunto de uvas sostenidas en un mismo tallo que pende del sarmiento',
     status: NOT_ANSWERED,
     answer: 'Racimo',
-
   },
   {
     letter: 'S',
     question: 'CON LA S. Parte interior de un templo en el que se preservan las cosas sagradas',
     status: NOT_ANSWERED,
     answer: 'Sagrario',
-
   },
   {
     letter: 'S',
     question: 'CON LA S. Exceder una persona u cosa a otra en la cualidad de la que se trata',
     status: NOT_ANSWERED,
     answer: 'Sobrepujar',
-
   },
   {
     letter: 'T',
     question: 'CON LA T. Estigma, defecto',
     status: NOT_ANSWERED,
     answer: 'Tara',
-
   },
   {
     letter: 'T',
     question: 'CON LA T. Lúgubre',
     status: NOT_ANSWERED,
     answer: 'Tétrico',
-
   },
   {
     letter: 'U',
     question: 'CON LA U. Situar o instalar en determinado espacio o lugar',
     status: NOT_ANSWERED,
     answer: 'Ubicar',
-
   },
   {
     letter: 'U',
-    question: 'CON LA U. Aplicar a algo aceite u otra materia pingüe, extendiéndola superficialmente',
+    question:
+      'CON LA U. Aplicar a algo aceite u otra materia pingüe, extendiéndola superficialmente',
     status: NOT_ANSWERED,
     answer: 'Ungir',
-
   },
   {
     letter: 'V',
     question: 'CON LA V. Tratado breve que contiene las nociones elementales de una ciencia u arte',
     status: NOT_ANSWERED,
     answer: 'Vademécum',
-
   },
   {
     letter: 'V',
     question: 'CON LA V. Vapor que despiden los cuerpos en determinadas condiciones',
     status: NOT_ANSWERED,
     answer: 'Vaho',
-
   },
   {
     letter: 'W',
     question: 'CONTIENE LA W. Vivienda rústica exenta de una única planta',
     status: NOT_ANSWERED,
     answer: 'Bungalow',
-
   },
   {
     letter: 'W',
     question: 'CONTIENE LA W. Fruto de ésta planta, de piel marron y carne verde comestible',
     status: NOT_ANSWERED,
     answer: 'Kiwi',
-
   },
   {
     letter: 'X',
-    question: 'CONTIENE LA X. Deporte que consiste en la lucha de dos púgiles, con las manos enfundadas en guantes especiales y de conformidad con ciertas reglas',
+    question:
+      'CONTIENE LA X. Deporte que consiste en la lucha de dos púgiles, con las manos enfundadas en guantes especiales y de conformidad con ciertas reglas',
     status: NOT_ANSWERED,
     answer: 'Boxeo',
-
   },
   {
     letter: 'X',
     question: 'CONTIENE LA X. Puntual, fiel y cabal',
     status: NOT_ANSWERED,
     answer: 'Exacto',
-
   },
   {
     letter: 'Y',
     question: 'CONTIENE LA Y. Abstenerse total o parcialmente de comer o beber',
     status: NOT_ANSWERED,
     answer: 'Ayunar',
-
   },
   {
     letter: 'Y',
     question: 'CONTIENE LA Y. Macho vacuno castrado',
     status: NOT_ANSWERED,
     answer: 'Buey',
-
   },
   {
     letter: 'Z',
-    question: 'CON LA Z. alzado que no pasa del tobillo, con la parte inferior de suela y lo demás de piel, fieltro, paño u otro tejido, más o menos escotado por el empeine',
+    question:
+      'CON LA Z. alzado que no pasa del tobillo, con la parte inferior de suela y lo demás de piel, fieltro, paño u otro tejido, más o menos escotado por el empeine',
     status: NOT_ANSWERED,
     answer: 'Zapato',
-
   },
   {
     letter: 'Z',
     question: 'CON LA Z. Muchacho que ha llegado a la adolescencia',
     status: NOT_ANSWERED,
     answer: 'Zagal',
-
   },
 ];
 
@@ -4436,10 +4391,10 @@ const philosophyQuestions = [
 ];
 
 class Player {
-  constructor(name, secondsToComplete, baseQ, alterQ) {
+  constructor(name, secondsToComplete, baseQ, alterQ, excludeQ) {
     this.name = name;
     this.secondsToComplete = secondsToComplete;
-    this.questions = Player.mixQuestions(baseQ, alterQ);
+    this.questions = Player.mixQuestions(baseQ, alterQ, excludeQ);
     this.timeEnd = null;
     this.timeStop = null;
     this.indexNextQuestion = 0;
@@ -4449,14 +4404,16 @@ class Player {
     const result = [...base];
     for (let i = 0; i < result.length; i++) {
       const currentLetter = result[i].letter;
-      const letterAlternatives = alter.filter(item => item.letter.toLowerCase() === currentLetter.toLowerCase());
+      const letterAlternatives = alter.filter(
+        item => item.letter.toLowerCase() === currentLetter.toLowerCase(),
+      );
       if (letterAlternatives !== 0) {
         do {
           const choose = Math.floor(Math.random() * (letterAlternatives.length + 1));
           if (choose !== 0) {
             result[i] = letterAlternatives[choose - 1];
           }
-        } while (exclude[i].question === result[i].question)
+        } while (exclude[i] !== undefined && exclude[i].question === result[i].question);
       }
     }
     return result;
@@ -4504,19 +4461,14 @@ class Player {
       this.questions[index].status = TIMEOUT;
       return this.questions[index].status;
     }
-    switch (answer.toLowerCase()) {
-      case 'pasapalabra':
-        this.questions[index].status = PASAPALABRA;
-        break;
-      case 'end':
-        this.questions[index].status = END;
-        break;
-      case this.questions[index].answer:
-        this.questions[index].status = CORRECT;
-        break;
-      default:
-        this.questions[index].status = WRONG;
-        break;
+    if (answer.toLowerCase() === 'pasapalabra') {
+      this.questions[index].status = PASAPALABRA;
+    } else if (answer.toLowerCase() === 'end') {
+      this.questions[index].status = END;
+    } else if (answer.toLowerCase() === this.questions[index].answer.toLowerCase()) {
+      this.questions[index].status = CORRECT;
+    } else {
+      this.questions[index].status = WRONG;
     }
     return this.questions[index].status;
   }
@@ -4556,7 +4508,7 @@ class Player {
   isFinished() {
     return this.isTimeOut() || this.isConceded() || this.isCompleted();
   }
-  
+
   countStatus(statusToCount) {
     return this.questions.filter(({ status }) => status === statusToCount).length;
   }
@@ -4628,26 +4580,29 @@ function confirmReady(player) {
 }
 
 function pasapalabraTwoPlayers(infoPlayer1, infoPlayer2) {
+  const allAlterQuestions = [...alterQuestions1, ...philosophyQuestions];
   const player1 = new Player(
-      infoPlayer1.name,
-      infoPlayer1.secondsToFinish,
-      baseQuestions,
-      alterQuestions,
-      []  // Exclude questions
-    );
+    infoPlayer1.name,
+    infoPlayer1.secondsToFinish,
+    baseQuestions,
+    allAlterQuestions,
+    [], // Exclude questions
+  );
   const player2 = new Player(
-      infoPlayer2.name,
-      infoPlayer2.secondsToFinish,
-      baseQuestions,
-      alterQuestions,
-      player1.questions   // Exclude questions
-    ),
-    const players = [player1,player2];
+    infoPlayer2.name,
+    infoPlayer2.secondsToFinish,
+    baseQuestions,
+    allAlterQuestions,
+    player1.questions, // Exclude questions
+  );
+  const players = [player1, player2];
   let inTurn = Math.floor(Math.random() * 2);
   const otherPlayerIndex = () => (inTurn === 0 ? 1 : 0);
   const playerInTurn = () => players[inTurn];
   const playerWaiting = () => players[otherPlayerIndex()];
-  const gameFinished = () => playerInTurn().isFinished() && playerWaiting().isFinished();
+  const gameFinished = () => playerInTurn().isConceded()
+    || playerWaiting().isConceded()
+    || (playerInTurn().isFinished() && playerWaiting().isFinished());
 
   console.log(`Bienvenidos ${players[0].name} y ${players[1].name}`);
   console.log(`En el sorteo ha salido que empiece ${playerInTurn().name}`);
@@ -4655,10 +4610,14 @@ function pasapalabraTwoPlayers(infoPlayer1, infoPlayer2) {
 
   let changePlayer = false;
   while (!gameFinished()) {
-    if (confirmReady(playerInTurn()) === 's') {
+    const confirm = confirmReady(playerInTurn());
+    if (confirm === 's') {
       playerInTurn().startTimer();
+      changePlayer = false;
+    } else if (confirm === 'end') {
+      playerInTurn().checkAnswer('end');
+      changePlayer = true;
     }
-    changePlayer = false;
     while (!changePlayer) {
       const answer = prompt(
         `${playerInTurn().getQuestion()}\nTe quedan: ${playerInTurn().secondsRemaining()} segundos\nRespuesta ("end" para terminar) > `,
@@ -4696,7 +4655,11 @@ function pasapalabraTwoPlayers(infoPlayer1, infoPlayer2) {
     playerInTurn().stopTimer();
     if (!gameFinished() && changePlayer) {
       console.log(playerInTurn().getDisplay());
-      console.log(`Pasamos el turno a ${playerWaiting().name}. Le quedan ${playerWaiting().secondsRemaining()}`);
+      console.log(
+        `Pasamos el turno a ${
+          playerWaiting().name
+        }. Le quedan ${playerWaiting().secondsRemaining()}`,
+      );
       inTurn = otherPlayerIndex();
     }
   }

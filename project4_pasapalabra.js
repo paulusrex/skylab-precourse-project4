@@ -4682,13 +4682,27 @@ function pasapalabraTwoPlayers(infoPlayer1, infoPlayer2) {
     const resumen = player => `${player.name} ha tenido ${player.countCorrect()} respuestas correctas y ${player.countCorrect()} incorrectas`;
     console.log(resumen(whoLose));
     console.log(resumen(whoWins));
-  }    
+  }
   console.log(`El ganador de esta edición de pasapalabra es ${whoWins.name}`);
   console.log('Y así acaba pasapalabra. Buenas tardes.');
   return [whoWins, whoLose];
 }
 
-let r = pasapalabraTwoPlayers(
-  { name: 'Pablo', secondsToFinish: 120 },
-  { name: 'Jaime', secondsToFinish: 130 },
+
+function promptInt(text) {
+  let number;
+  do {
+    number = parseInt(prompt(text));
+  } while (Number.isNaN(number));
+  return number;
+};
+
+const player1Name = prompt('Nombre del jugador 1: ');
+const player1Seconds = promptInt(`Segundos para ${player1Name}`);
+const player2Name = prompt('Nombre del jugador 2: ');
+const player2Seconds = promptInt(`Segundos para ${player2Name}`);
+
+const r = pasapalabraTwoPlayers(
+  { name: player1Name, secondsToFinish: player1Seconds },
+  { name: player2Name, secondsToFinish: player2Seconds },
 );

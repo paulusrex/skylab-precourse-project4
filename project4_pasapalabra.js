@@ -4421,10 +4421,16 @@ class Player {
 
   static whoWins(player1, player2) {
     const compare = (p1, p2, gt, lt, eq) => (p1 > p2 ? gt : p1 < p2 ? lt : eq);
-    let winner = compare(player1.countCorrect(), player2.countCorrect(), player1, player2, null);
+    let winner = player1.isConceded() ? player2 : null;
+    winner = winner || (player2.isConceded() ? player1 : null);
+    winner = winner || compare(player1.countCorrect(), player2.countCorrect(), player1, player2, null);
     winner = winner || compare(player1.countWrong(), player2.countWrong(), player2, player1, null);
     winner = winner || compare(player1.timeRemaining(), player2.timeRemaining(), player1, player2, null);
     return winner;
+  }
+
+  static whoLose(player1, player2) {
+    return Player.whoWins(player1, player2) === player1 ? player2 : player1;
   }
 
   startTimer() {
@@ -4566,7 +4572,11 @@ class Player {
           break;
       }
     }
-    result = `Rosco de ${this.name} con ${this.secondsRemaining()} segundo todavía\n${result}`;
+    if (this.timeRemaining() === -1) {
+      result = `Rosco de ${this.name} al que se le ha acabado el tiempo\n${result}`;
+    } else {
+      result = `Rosco de ${this.name} con ${this.secondsRemaining()} segundo todavía\n${result}`;
+    }
     return result;
   }
 }
@@ -4664,9 +4674,21 @@ function pasapalabraTwoPlayers(infoPlayer1, infoPlayer2) {
     }
   }
   // TODO: display de resultado
+  const whoWins = Player.whoWins(players[0], players[1]);
+  const whoLose = Player.whoLose(players[0], players[1]);
+  if (players[0].isConceded() || players[1].isConceded()) {
+    console.log(`${whoLose.name} ha concedido la partida, cuando ${whoWins.name} llevaba ${whoWins.countCorrect()} acertadas`);
+  } else {
+    const resumen = player => `${player.name} ha tenido ${player.countCorrect()} respuestas correctas y ${player.countCorrect()} incorrectas`;
+    console.log(resumen(whoLose));
+    console.log(resumen(whoWins));
+  }    
+  console.log(`El ganador de esta edición de pasapalabra es ${whoWins.name}`);
+  console.log('Y así acaba pasapalabra. Buenas tardes.');
+  return [whoWins, whoLose];
 }
 
-pasapalabraTwoPlayers(
+let r = pasapalabraTwoPlayers(
   { name: 'Pablo', secondsToFinish: 120 },
   { name: 'Jaime', secondsToFinish: 130 },
 );
